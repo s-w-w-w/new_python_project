@@ -1,10 +1,16 @@
 #!/usr/bin/env bash 
 
-# create new suite for testing javascript code with mocha and chai
-# type -h for available options
+### new_python_project.js - create scaffolding for new python project
+### Help: type -h for available options
 
-# this script install mocha 3.5.0 and chai 4.3.7 add ^ before the version to get the latest version
-
+### What this program does:
+# 1. parse script options
+# 2. make app dir
+# 3. prepare lib directory
+# 4. prepare test directory
+# 5. create bin directory and a basic executable script in it
+# 6. create README.md
+# 7. create gitignore
 
 #configuration
 APPS_DIR=~/www/tests/python/algorithms
@@ -55,7 +61,7 @@ fi
 mkdir "$APP_PATH"
 cd "$APP_PATH"
 
-# 3. preppare lib directory 
+# 3. prepare lib directory 
 mkdir lib
 cat <<END > "lib/$APP_NAME.py";
 """
@@ -97,7 +103,7 @@ if __name__ == '__main__':
 TND
 echo "$REPLY" > "test/test$APP_NAME.py"
 
-# 5. create bin directory and a skeleton for a program name
+# 5. create bin directory and a basic executable script in it
 mkdir bin
 
 PROG_NAME=${APP_NAME,,}
@@ -135,7 +141,7 @@ if __name__ == "__main__":
     main()
 PFL
 echo "$REPLY" > "bin/$PROG_NAME"
-
+chmod 755 "bin/$PROG_NAME" 
 
 # 6. create README.md
 touch README.md
